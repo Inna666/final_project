@@ -13,7 +13,7 @@ class ProductPage(BasePage):
 
     def add_product_to_basket(self, product_name, product_price):
         self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON).click()
-        self.solve_quiz_and_get_code()
+      #  self.solve_quiz_and_get_code()
         assert product_price == self.browser.find_element(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_PRICE_MESSAGE).text, "Incorrect price"
         flag = False
         for message_success in self.browser.find_elements(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_SUCCESS_MESSAGES):
@@ -21,3 +21,5 @@ class ProductPage(BasePage):
                 flag = True
                 break
         assert flag == True, "Incorrect name"
+
+
